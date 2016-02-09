@@ -2,10 +2,10 @@
 ; Hello World
 ; ----------------------------------------------------------------------------------------
 
-        global  _start
+        global  main
 
         section .text
-_start:
+main:
         ; write(1, message, 13)
         mov     eax, 4                  ; system call 1 is write
         mov     ebx, 1                  ; file handle 1 is stdout

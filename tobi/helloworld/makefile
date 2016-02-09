@@ -1,5 +1,5 @@
 CC=gcc
-FLAGS= -m32
+FLAGS= -g -Wall -m32
 
 hello: hello.c
 	$(CC) $(FLAGS) -o hello hello.c

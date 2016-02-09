@@ -1,6 +1,14 @@
-hello: hello.asm
-	nasm -f elf hello.asm
-	ld -m elf_i386  hello.o -o hello
+CC=gcc
+FLAGS= -g -Wall -m32
+LD=ld -m elf_i386
+
+#all: hello.o
+#	$(LD) -o hello hello.o
+all: hello.o
+	$(CC) $(FLAGS) -o hello hello.o
+
+hello.o: hello.asm
+	nasm -f elf -g  hello.asm
 
 .PHONY: clean
 
