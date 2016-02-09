@@ -1,4 +1,4 @@
-OBJS = hello.o
+OBJS = src.o
 
 EXECUTABLE = out.x
 
