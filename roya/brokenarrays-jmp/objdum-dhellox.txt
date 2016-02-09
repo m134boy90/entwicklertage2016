@@ -1,0 +1,22 @@
+
+hello.x:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+08048060 <_start>:
+ 8048060:	eb 20                	jmp    8048082 <STACKUP>
+
+08048062 <RUN>:
+ 8048062:	b8 04 00 00 00       	mov    $0x4,%eax
+ 8048067:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 804806c:	59                   	pop    %ecx
+ 804806d:	ba 0b 00 00 00       	mov    $0xb,%edx
+ 8048072:	cd 80                	int    $0x80
+ 8048074:	eb 0c                	jmp    8048082 <STACKUP>
+ 8048076:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804807b:	bb 00 00 00 00       	mov    $0x0,%ebx
+ 8048080:	cd 80                	int    $0x80
+
+08048082 <STACKUP>:
+ 8048082:	e8 db ff ff ff 50 77 6e 65 64 20 59 6f 75 21 0a     .....Pwned You!.

@@ -10,13 +10,19 @@ CFLAGS = -c
 AFLAGS = -fno-stack-protector $(DEBUG)
 LDFLAGS =
 
-#all: $(EXECUTABLE)
+all: $(EXECUTABLE) hello.x
 
 $(EXECUTABLE): $(OBJS)
 	$(CC) $(AFLAGS) -o $@ $^ $(LIBOBJS) $(LDFLAGS) 
 
 %.o: %.c $(HEADS)
 	$(CC) $(AFLAGS) $(CFLAGS) $<
+
+hello.x: hello.o
+	ld -m elf_i386 -o hello.x hello.o
+
+hello.o: hello.asm
+	nasm -g -f elf hello.asm
 
 .PHONY: tidy clean re pack link
 
@@ -35,5 +41,5 @@ clean: tidy
 	rm -f *.x *.txz runnable
 
 pack:
-	tar cvf - *.c *.h makefile | pixz -9 -e > $(PACKFILE).txz
+	tar cvf - *.c *.asm makefile | pixz -9 -e > $(PACKFILE).txz
 
