@@ -1,2 +1,8 @@
-hello.o: hello.asm
-	nasm -felf64 hello.asm && ld hello.o
+hello: hello.asm
+	nasm -f elf hello.asm
+	ld -m elf_i386  hello.o -o hello
+
+.PHONY: clean
+
+clean:
+	rm -f *.o hello
